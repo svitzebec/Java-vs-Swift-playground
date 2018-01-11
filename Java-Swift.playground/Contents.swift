@@ -35,7 +35,7 @@ let fooConstant: String = "some string"
  ## Type inference
  V Swiftu poznamo koncept "type inference-a", kar pomeni, da lahko tip spremenljivke/konstante ne definiramo eksplicitno ampak implicitno (deklaracijo tipa izpustimo in prepustimo prevajalniku da iz inicializacije določi tip)
  */
-let string = "some string"
+var string = "some string"
 let integer = 1
 let double = 1.5
 //: Preverimo implicitne tipe
@@ -99,6 +99,8 @@ if let unwrappedVariableWithIfLet = optionalVariable {
  ### Opcijsko veriženje (optional chaining)
  Če opcijska spremenljivka ni `nil` potem bo `?` za spremenljivko vrnil neopcijsko vrednost, drugače pa `nil`.
  */
+
+//optionalVariable = nil
 optionalVariable?.count
 /*:
  ## Nevarno odpiranje opcijskih tipov
@@ -106,7 +108,7 @@ optionalVariable?.count
  Če opcijska spremenljivka ni `nil` potem bo `!` za spremenljivko vrnil neopcijsko vrednost, drugače pa bo prišlo do napake med izvajanjem.
  */
 //optionalVariable = nil
-optionalVariable!.count
+//optionalVariable!.count
 /*:
  Uporaba opcijskih tipov povečuje varnost programiranja, zato je njihovo uporaba v Swiftu močno priporočena. Med programiranjem se izogibamo uporabi `!` (prisilno odpiranje).
  */
@@ -216,6 +218,35 @@ let exampleClass = ExampleClass()
 exampleClass.numberPlusOne
 exampleClass.numberPlusOne = 6
 exampleClass.numberPlusOne
+/*:
+ ## Dedovanje
+ Kot omenjeno med podobnostmi oba jezika podpirata dedovanje.
+ ### Java
+ ```
+ class ElectricCar extends Car {
+ 
+     private double rangeInKm;
+     
+     public ElectricCar(String brand, String model, int modelYear, String nickname, double rangeInKm) {
+         super(brand, model, modelYear,  nickname);
+         this.rangeInKm = rangeInKm;
+     }
+     
+     public double getRangeInKm() {
+        return rangeInKm;
+     }
+     public void setRangeInKm(double rangeInKm) {
+        this.rangeInKm = rangeInKm;
+     }
+     
+     @Override
+     public void honk() {
+        System.out.println("beep boop");
+     }
+ }
+ ```
+ ### Swift
+ */
 class ElectricCar: Car {
     
     var rangeInKm: Double
@@ -332,7 +363,8 @@ class MemoryExample {
 
 var reference: MemoryExample? = nil
 reference = MemoryExample()
-//reference = nil
+reference = nil
+
 /*:
  ## Močen referenčni cikel
  V večini primerov za upravljanje s spominom v Swiftu uporabnik ne rabi skrbeti. Razen v primeru kadar pride do močnega referenčnega cikla (strong reference cycle oziroma retain cycle). Do tega pride takrat, kadar imata dve instanci močno referenco druga na drugo. Poglejmo si kar primer iz [Swiftove dokumentacije](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AutomaticReferenceCounting.html#//apple_ref/doc/uid/TP40014097-CH20-ID48).
