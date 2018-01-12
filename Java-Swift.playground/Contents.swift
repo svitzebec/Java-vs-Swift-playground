@@ -405,7 +405,7 @@ unit4A = nil
  */
 /*:
  # Za konec
- Na koncu velja še omeniti, da je Swift odprtoken jezik in je še več informacij o njem na voljo na [Swift Foundation](https://swiftfoundation.org).
+ Na koncu velja še omeniti, da je Swift odprtoken jezik in je še več informacij o njem na voljo na [Swift spletni strani](https://swift.org).
  
  Poleg tega pa Swift še ni končan jezik in se z novimi verzijami še spreminja, kar pomeni, da lahko nova verzija prilagajanje v kodi stare verzije. Trenutno aktualna verzija je Swift 4.
  */
